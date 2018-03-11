@@ -55,34 +55,32 @@
 
 
 
-  Question.prototype.displayQuestion = function (){
+   Question.prototype.displayQuestion = function (){
           
            var j=0;
            console.log('Q. ' + this.question);
-          
-
            for(var i=0;i< this.answers.length;i++)
            	  console.log(i + ': ' + this.answers[i]);
             j++;
-            }    
+          }    
 
 
-  Question.prototype.checkAnswer = function(ans) {
+   Question.prototype.checkAnswer = function(ans) {
 
 
             if(ans === this.correct)
-            {  console.log('Ans. correct');
+            {  
+              console.log('Ans. correct');
               console.log('your current score is : ' + keepScore(true));
               console.log('---------------------------------------------');
 
-               }
+               }else {   
 
-            else 
-            {   console.log('Ans. wrong answer try again!!');
-                console.log('your current score is : ' + keepScore(false));
-                console.log('---------------------------------------------');
+               	   console.log('Ans. wrong answer try again!!');
+                   console.log('your current score is : ' + keepScore(false));
+                   console.log('---------------------------------------------');
                 }      
-       }
+        }
 
 
 
@@ -106,22 +104,14 @@
    function nextQuestion() {
 
          var questions = [q1,q2,q3,q4,q5];
-
          var n = Math.floor(Math.random() * questions.length);
-
          questions[n].displayQuestion();
-
-
          var ans = prompt('Enter the correct answer');
-
-         
-         
          if(ans !== 'exit')
          {
          	 questions[n].checkAnswer(parseInt(ans));
              nextQuestion();
-
-         }
+           }
 
    }
 

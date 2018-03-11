@@ -1,6 +1,6 @@
 // constructer function 
 
-/*
+
 var Person = function (name,yearOfBirth,job) {
 
 
@@ -12,28 +12,22 @@ var Person = function (name,yearOfBirth,job) {
 
 Person.prototype.calculateAge = function() {
 
-
     console.log(2018-this.yearOfBirth);
 }
 
-
 var john = new Person('john',1996,'teacher');
 var mark = new Person('Mark',1990,'artist');
-
 john.calculateAge();
 mark.calculateAge();
-
-
 Person.prototype.lastName = 'smith';
-
 console.log(john);
 
-*/
+
 
 // Object.create
 
 
-/*
+
 var perProto = {
 
      calculateAge: function() {
@@ -45,7 +39,6 @@ var perProto = {
 
 
 var john = Object.create(perProto);
-
 john.name = 'john';
 john.yearOfBirth = 1996;
 john.job = 'teacher';
@@ -60,19 +53,17 @@ var jane = Object.create(perProto, {
 });
 
 
-*/
+
 
 
 //Passing functions as an arguments
 
-/*
+
 var years = [1990,1995,1980,1985,2003];
 
 function arrayCal(arr,fn) {
 
-
 var array = [];
-
 for(var i=0;i<arr.length;i++)
 {
    array.push(fn(arr[i]));
@@ -101,9 +92,6 @@ var ages = arrayCal(years,calculateAge);
 var fullAges = arrayCal(ages,calculateFullAge);
 console.log(ages);
 console.log(fullAges);
-
-
-*/
 
 
 
@@ -141,13 +129,9 @@ var emily = {
 };
 
 john.presentation('formal','morning');
-
 john.presentation.call(emily,'formal','morning');
-
 john.presentation.apply(emily,['friendly','afternoon']);
-
 var johnFriendly = john.presentation.bind(john,'friendly');
-
 johnFriendly('morning');
 johnFriendly('Night');
 
